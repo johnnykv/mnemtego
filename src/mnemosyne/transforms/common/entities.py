@@ -47,6 +47,8 @@ TODO: define as many custom fields and entity types as you wish:)
 #honeypot type
 @EntityField(name='mnemosyne.protocol', propname='protocol', displayname='Protocol')
 @EntityField(name='mnemosyne.timestamp', propname='timestamp', displayname='Timestamp', type=EntityFieldType.String)
+@EntityField(name='mnemosyne.ipv4addr', propname='ipv4addr', displayname='IP', type=EntityFieldType.String)
+
 class MnemosyneHPIncident(MnemosyneEntity):
     """
     Uncomment the line below and comment out the pass if you wish to define a ridiculous entity type name like
