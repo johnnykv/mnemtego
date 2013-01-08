@@ -48,8 +48,25 @@ TODO: define as many custom fields and entity types as you wish:)
 @EntityField(name='mnemosyne.protocol', propname='protocol', displayname='Protocol')
 @EntityField(name='mnemosyne.timestamp', propname='timestamp', displayname='Timestamp', type=EntityFieldType.String)
 @EntityField(name='mnemosyne.ipv4addr', propname='ipv4addr', displayname='IP', type=EntityFieldType.String)
-
+@EntityField(name='mnemosyne.hpfeed_id', propname='hpfeed_id', displayname='HPFeed Id', type=EntityFieldType.String)
 class MnemosyneHPIncident(MnemosyneEntity):
+    """
+    Uncomment the line below and comment out the pass if you wish to define a ridiculous entity type name like
+    'my.fancy.EntityType'
+    """
+    # name = my.fancy.EntityType
+    pass
+
+
+#Extractions
+@EntityField(name='mnemosyne.timestamp', propname='timestamp', displayname='Timestamp', type=EntityFieldType.String)
+#Which hash to use as value?
+@EntityField(name='mnemosyne.sha512', propname='sha512', displayname='SHA-512', type=EntityFieldType.String)
+@EntityField(name='mnemosyne.sha1', propname='sha1', displayname='SHA-1', type=EntityFieldType.String)
+@EntityField(name='mnemosyne.md5', propname='md5', displayname='MD5', type=EntityFieldType.String)
+
+@EntityField(name='mnemosyne.hpfeed_id', propname='hpfeed_id', displayname='HPFeed Id', type=EntityFieldType.String)
+class MnemosyneExtraction(MnemosyneEntity):
     """
     Uncomment the line below and comment out the pass if you wish to define a ridiculous entity type name like
     'my.fancy.EntityType'

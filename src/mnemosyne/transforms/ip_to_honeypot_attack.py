@@ -37,8 +37,6 @@ TODO: Uncomment the line below if the transform needs to run as super-user
     debug=True
 )
 def dotransform(request, response):
-    #TODO: not hardcore ip! :-)
-    #http://172.30.0.93/api/sessions?source_ip=127.0.0.1
 
     ip_addr = request.value
 
@@ -52,6 +50,7 @@ def dotransform(request, response):
         entity.protocol = s['protocol']
         entity.timestamp = s['timestamp']
         entity.type = s['honeypot']
+        entity.hpfeed_id = s['hpfeed_id']
         if 'destination_ip' in s:
             entity.ipv4add = s['destination_ip']
         response += entity
