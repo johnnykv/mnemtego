@@ -14,7 +14,7 @@ __status__ = 'Development'
 
 __all__ = [
     'MnemosyneEntity',
-    'MyMnemosyneEntity'
+    'MnemosyneHPIncident'
 ]
 
 """
@@ -24,6 +24,8 @@ default namespace that all your entities will use for their unique entity type i
 have an entity type name of mnemosyne.MyMnemosyneEntity. When adding a new entity in Maltego, you will have to specify this
 name (mnemosyne.MyMnemosyneEntity) in the 'Unique entity type' field.
 """
+
+
 class MnemosyneEntity(Entity):
     namespace = 'mnemosyne'
 
@@ -40,10 +42,12 @@ You can specify as many entity fields as you want by just adding an extra @Entit
     - matchingrule: whether or not the field should be loosely or strictly matched (optional, default: MatchingRule.Strict)
     - decorator: a function that is invoked each and everytime the field's value is set or changed.
 TODO: define as many custom fields and entity types as you wish:)
-"""    
-@EntityField(name='mnemosyne.fieldN', propname='fieldN', displayname='Field N', matchingrule=MatchingRule.Loose)
-@EntityField(name='mnemosyne.field1', propname='field1', displayname='Field 1', type=EntityFieldType.Integer)
-class MyMnemosyneEntity(MnemosyneEntity):
+"""
+
+#honeypot type
+@EntityField(name='mnemosyne.protocol', propname='protocol', displayname='Protocol')
+@EntityField(name='mnemosyne.timestamp', propname='timestamp', displayname='Timestamp', type=EntityFieldType.String)
+class MnemosyneHPIncident(MnemosyneEntity):
     """
     Uncomment the line below and comment out the pass if you wish to define a ridiculous entity type name like
     'my.fancy.EntityType'

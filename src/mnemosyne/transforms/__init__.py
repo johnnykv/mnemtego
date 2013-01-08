@@ -10,6 +10,7 @@ __maintainer__ = 'Johnny Vestergaard'
 __email__ = 'jkv@unixcluster.dk'
 __status__ = 'Development'
 __all__ = [
+    'to_honeypot_attack',
     'common',
     'helloworld'
 ]
