@@ -12,5 +12,6 @@ __status__ = 'Development'
 __all__ = [
     'ip_to_honeypot_attack',
     'url_to_extractions',
+    'website_to_url',
     'common',
 ]

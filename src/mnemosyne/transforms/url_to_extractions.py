@@ -35,7 +35,6 @@ def dotransform(request, response):
 
     regex = '^{0}'.format(re.escape(url))
     json_dict = msmodule.query('/urls?url_regex={0}'.format(regex))
-    print json_dict
 
     if len(json_dict['urls']) > 0:
         if 'extractions' in json_dict['urls'][0]:
