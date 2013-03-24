@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 
-from canari.maltego.utils import debug, progress
+import re
+
 from canari.framework import configure
 from canari.maltego.entities import URL
 from canari.maltego.entities import Website
+
 from common import msmodule
-import re
+
 
 __author__ = ''
 __copyright__ = 'Copyright 2013,  Project'
@@ -19,7 +21,6 @@ __status__ = 'Development'
 
 __all__ = [
     'dotransform',
-    'onterminate'
 ]
 
 
@@ -31,7 +32,6 @@ __all__ = [
     debug=True
 )
 def dotransform(request, response):
-
     url = request.value
     regex = '.*{0}(/|:)'.format(re.escape(url))
     json_dict = msmodule.query('/urls?url_regex={0}'.format(regex))
@@ -42,10 +42,3 @@ def dotransform(request, response):
             entity.fqdn = url['url']
             response += entity
     return response
-
-
-def onterminate():
-    """
-    TODO: Write your cleanup logic below or delete the onterminate function and remove it from the __all__ variable
-    """
-    pass

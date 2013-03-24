@@ -18,8 +18,7 @@ __email__ = ''
 __status__ = 'Development'
 
 __all__ = [
-    'dotransform',
-    'onterminate'
+    'dotransform'
 ]
 
 
@@ -39,10 +38,3 @@ def dotransform(request, response):
     response += URL('hejsa')
 
     return response
-
-
-def onterminate():
-    """
-    TODO: Write your cleanup logic below or delete the onterminate function and remove it from the __all__ variable
-    """
-    pass

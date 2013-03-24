@@ -18,8 +18,7 @@ __email__ = 'jkv@unixcluster.dk'
 __status__ = 'Development'
 
 __all__ = [
-    'dotransform',
-    'onterminate'
+    'dotransform'
 ]
 
 
@@ -53,7 +52,6 @@ def dotransform(request, response):
     for s in honeypot_sessions:
         count += 1
         entity = MnemosyneHoneypot(s['destination_ip'])
-        #entity.iconurl = 'l'
         entity.iconurl = 'file://%s' % resource_filename('mnemosyne.resources.images', 'hp_logo.png')
         entity.linklabel = '{0} Attacks'.format(count)
         entity.Honeypot = s['honeypot']
@@ -61,10 +59,3 @@ def dotransform(request, response):
         response += entity
 
     return response
-
-
-def onterminate():
-    """
-    TODO: Write your cleanup logic below or delete the onterminate function and remove it from the __all__ variable
-    """
-    pass
