@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='mnemosyne',
+    name='mnemtego',
     author='Johnny Vestergaard',
     version='1.0',
     author_email='jkv@unixcluster.dk',
@@ -13,10 +13,6 @@ setup(
     package_data={
         '' : [ '*.gif', '*.png', '*.conf', '*.mtz', '*.machine' ] # list of resources
     },
-    install_requires=[
-        'canari=0.5'
-    ],
-    dependency_links=[
-        # custom links for the install_requires
-    ]
+    install_requires=open('requirements.txt').read().splitlines(),
+
 )

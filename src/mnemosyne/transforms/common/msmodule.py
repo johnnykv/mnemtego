@@ -4,6 +4,19 @@ from canari.config import config
 
 def query(query):
     full_url = config['mnemosyne/api_url'] + query
-    #TODO: Check for errors
-    response = requests.get(full_url)
+    #maybe fetch creds through maltego popup?
+    username = config['mnemosyne/username']
+    password = config['mnemosyne/password']
+
+    sess = requests.Session()
+
+    #login and store session cookie
+    payload = {'username': username, 'password': password}
+    response = sess.post(config['mnemosyne/login_url'], payload, verify=False)
+    if response.status_code != 200:
+        print "Error while requesting session cookie from mnemosyne: {0}".format(response.status_code)
+        return []
+
+    response = sess.get(full_url, verify=False)
+
     return response.json()

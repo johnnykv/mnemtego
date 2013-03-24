@@ -36,14 +36,8 @@ def dotransform(request, response):
     regex = '.*{0}(/|:)'.format(re.escape(url))
     json_dict = msmodule.query('/urls?url_regex={0}'.format(regex))
 
-    #if len(json_dict['urls']) > 0:
-    #    for url in json_dict['urls']:
-    #        entity = URL('woopsa')
-    #        entity.fqdn = url['url']
-    #        #entity.fqdn = url['url']
-    #        response += entity
     response += URL('hejsa')
-    #response += Phrase('Hello james')
+
     return response
 
 

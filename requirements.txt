@@ -1,0 +1,2 @@
+requests
+canari>=0.8

@@ -1,5 +1,5 @@
 *.py[co]
-
+.idea
 # Packages
 *.egg
 *.egg-info
@@ -31,3 +31,7 @@ test.db
 log.txt
 .log
 *.log
+
+canari.conf
+
+src/canari.conf

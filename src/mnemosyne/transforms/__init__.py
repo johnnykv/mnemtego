@@ -11,6 +11,7 @@ __email__ = 'jkv@unixcluster.dk'
 __status__ = 'Development'
 __all__ = [
     'ip_to_honeypot_attack',
+    'ip_to_attacked_protocol',
     'url_to_extractions',
     'website_to_url',
     'common',
