@@ -33,8 +33,11 @@ def dotransform(request, response):
 
     url = request.value
     regex = '.*{0}(/|:)'.format(re.escape(url))
-    json_dict = msmodule.query('/urls?url_regex={0}'.format(regex))
 
-    response += URL('hejsa')
+    json_dict = msmodule.query('urls?url_regex={0}'.format(regex))
+    urls = json_dict['urls']
+    
+    for item in urls:
+        response += URL(item['url'])
 
     return response
