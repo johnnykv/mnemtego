@@ -25,8 +25,8 @@ __all__ = [
 @configure(
     label='Domain to URL [Mnemosyne]',
     description='Returns URLs extracted with automated tools from The Honeynet Project.',
-    uuids=['mnemosyne.v1.MnemosyneDomainToURLs'],
-    inputs=[('Mnemosyne', Domain)],
+    uuids=['mnemtego.v1.MnemosyneDomainToURLs'],
+    inputs=[('Mnemtego', Domain)],
     debug=True
 )
 def dotransform(request, response):

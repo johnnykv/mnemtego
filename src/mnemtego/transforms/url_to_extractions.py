@@ -24,9 +24,9 @@ __all__ = [
 
 @configure(
     label='URL to extractions [Mnemosyne]',
-    description='Returns checksums of malicious files (javascript, binaries, etc) extracted from the url',
-    uuids=['mnemosyne.v1.MnemosyneURLToExtractions'],
-    inputs=[('Mnemosyne', URL)],
+    description='Returns hashes of malicious files (javascript, binaries, etc) extracted from the specified url',
+    uuids=['mnemtego.v1.MnemosyneURLToExtractions'],
+    inputs=[('Mnemtego', URL)],
     debug=True
 )
 def dotransform(request, response):
