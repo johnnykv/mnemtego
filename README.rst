@@ -22,14 +22,14 @@ Currently the following transforms are available:
 * IP to honeypot attacks.
 * IP to attacked protocols.
 * Domain to URL's.
-
- * Expands a domain to all URL's within that domain which somehow has been reported on HPFeeds.
+ 
+  * Expands a domain to all URL's within that domain which somehow has been reported on HPFeeds.
 
 * URL to (potential) malware extractions (hashes).
 
- * Expands a URL to hashes of all reported extractions (PDF, Javascript, SWF, JAR, etc).
- * The binary itself will have to be downloaded manually from mnemosyne.
+  * Expands a URL to hashes of all reported extractions (PDF, Javascript, SWF, JAR, etc).
+  * The binary itself will have to be downloaded manually from mnemosyne.
 
 * Extractions (hashes) to URL's.
 
- * Expands a hash to all URL which has been serving this file.
+  * Expands a hash to all URL which has been serving this file.
