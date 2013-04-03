@@ -14,5 +14,7 @@ __all__ = [
     'ip_to_attacked_protocol',
     'url_to_extractions',
     'website_to_url',
+    'domain_to_url',
+    'extraction_to_url',
     'common',
 ]

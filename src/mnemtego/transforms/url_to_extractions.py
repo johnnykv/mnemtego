@@ -25,7 +25,7 @@ __all__ = [
 @configure(
     label='URL to extractions [Mnemosyne]',
     description='Returns hashes of malicious files (javascript, binaries, etc) extracted from the specified url',
-    uuids=['mnemtego.v1.MnemosyneURLToExtractions'],
+    uuids=['mnemtego.v1.URLToExtraction'],
     inputs=[('Mnemtego', URL)],
     debug=True
 )
@@ -34,7 +34,7 @@ def dotransform(request, response):
     url = request.value
 
     regex = '^{0}'.format(re.escape(url))
-    json_dict = msmodule.query('/urls?url_regex={0}'.format(regex))
+    json_dict = msmodule.query('urls?url_regex={0}'.format(regex))
 
     if len(json_dict['urls']) > 0:
         if 'extractions' in json_dict['urls'][0]:
@@ -45,12 +45,21 @@ def dotransform(request, response):
             for e in extractions:
                 has_hash_keys = valid_hash_fields.intersection(set(e['hashes'].keys()))
 
-                entity = MnemosyneExtraction('{0} [{1}]'.format(e['hashes']['md5'], 'MD5'))
-                for k in has_hash_keys:
-                    entity.k = e['hashes'][k]
+                #entity = MnemosyneExtraction('{0} [{1}]'.format(e['hashes']['sha1'], 'SHA1'))
+                entity = MnemosyneExtraction('Unknown')
 
-                #TODO: mnemo API must add this
-                #entity.hpfeed_id = e['hpfeed_id']
+                for k in has_hash_keys:
+                    setattr(entity, k, e['hashes'][k])
+
+                query = msmodule.query('files?hash={0}&no_data'.format(entity.md5))['files']
+
+                if len(query) > 0 and 'content_guess' in query[0]:
+                    entity.content_guess = query[0]['content_guess']
+                else:
+                    entity.content_guess = 'Unknown'
+
+                entity.value = entity.content_guess
+
                 response += entity
 
     return response

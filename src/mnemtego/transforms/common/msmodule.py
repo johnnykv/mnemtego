@@ -14,9 +14,10 @@ def query(query):
     payload = {'username': username, 'password': password}
     response = sess.post(config['mnemtego/login_url'], payload, verify=False)
     if response.status_code != 200:
-        print "Error while requesting session cookie from mnemtego: {0}".format(response.status_code)
+        raise Exception("Error while requesting session cookie from mnemtego: {0}".format(response.status_code))
         return []
 
     response = sess.get(full_url, verify=False)
+    #TODO: Check statuscode
 
     return response.json()

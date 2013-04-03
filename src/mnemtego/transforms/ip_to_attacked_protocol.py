@@ -33,7 +33,7 @@ TODO: Uncomment the line below if the transform needs to run as super-user
 @configure(
     label='To Protocols Attacked [Mnemosyne]',
     description='Returns the types of protocols this IP has attacked.',
-    uuids=['mnemtego.v1.MnemosyneIPToAttackedProtocol'],
+    uuids=['mnemtego.v1.IPToAttackedProtocol'],
     inputs=[('Mnemtego', IPv4Address)],
     debug=True
 )

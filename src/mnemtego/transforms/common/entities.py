@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from canari.maltego.message import Entity, EntityField, EntityFieldType, MatchingRule
+
 from canari.maltego.entities import IPv4Address
 
 
@@ -34,12 +35,11 @@ class MnemosyneHoneypot(MnemosyneEntity):
 class MnemosyneProtocol(MnemosyneEntity):
     pass
 
-#Extractions
-@EntityField(name='mnemtego.timestamp', propname='timestamp', displayname='Timestamp', type=EntityFieldType.String)
 #Which hash to use as value?
-@EntityField(name='mnemtego.sha512', propname='sha512', displayname='SHA-512', type=EntityFieldType.String)
-@EntityField(name='mnemtego.sha1', propname='sha1', displayname='SHA-1', type=EntityFieldType.String)
-@EntityField(name='mnemtego.md5', propname='md5', displayname='MD5', type=EntityFieldType.String)
-@EntityField(name='mnemtego.hpfeed_id', propname='hpfeed_id', displayname='HPFeed Id', type=EntityFieldType.String)
+@EntityField(name='mnemtego.content_guess', propname='content_guess', displayname='Content Guess')
+@EntityField(name='mnemtego.sha512', propname='sha512', displayname='SHA-512', matchingrule=MatchingRule.Strict)
+@EntityField(name='mnemtego.sha1', propname='sha1', displayname='SHA-1', matchingrule=MatchingRule.Strict)
+@EntityField(name='mnemtego.md5', propname='md5', displayname='MD5', matchingrule=MatchingRule.Strict)
+@EntityField(name='mnemtego.hpfeed_id', propname='hpfeed_id', displayname='HPFeed Id')
 class MnemosyneExtraction(MnemosyneEntity):
     pass

@@ -2,7 +2,7 @@
 
 from canari.maltego.utils import debug, progress
 from canari.framework import configure  # , superuser
-from canari.maltego.entities import URL, Phrase
+from canari.maltego.entities import URL
 from canari.maltego.entities import Domain
 from common import msmodule
 import re
@@ -25,7 +25,7 @@ __all__ = [
 @configure(
     label='Domain to URL [Mnemosyne]',
     description='Returns URLs extracted with automated tools from The Honeynet Project.',
-    uuids=['mnemtego.v1.MnemosyneDomainToURLs'],
+    uuids=['mnemtego.v1.DomainToURL'],
     inputs=[('Mnemtego', Domain)],
     debug=True
 )
@@ -38,6 +38,8 @@ def dotransform(request, response):
     urls = json_dict['urls']
     
     for item in urls:
-        response += URL(item['url'])
+        u = URL(item['url'])
+        u.url = item['url']
+        response += u
 
     return response

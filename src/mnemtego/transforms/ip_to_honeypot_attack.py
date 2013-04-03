@@ -32,7 +32,7 @@ TODO: Uncomment the line below if the transform needs to run as super-user
 @configure(
     label='To Honeypot Attacks [Mnemosyne]',
     description='Returns honeypot attacks from the specified IP.',
-    uuids=['mnemtego.v1.MnemosyneIPToHoneypotAttack'],
+    uuids=['mnemtego.v1.IPToHoneypotAttack'],
     inputs=[('Mnemtego', IPv4Address)],
     debug=True
 )
