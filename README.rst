@@ -33,3 +33,13 @@ Currently the following transforms are available:
 * Extractions (hashes) to URL's.
 
   * Expands a hash to all URL which has been serving this file.
+
+Example graph
+=============
+
+The following examples shows how a query on a specific .ru domain revealed that it was serving a piece of Adobe Flash (SWF) malware.
+Furthermore it was revealed that this `specific malware (a5a1308ee3ca7f75fe85fe4d9a14752f)
+<https://www.virustotal.com/en/file/3beb8ae0ce0ba1c7a8235d93aefcadded2ab7917414b70ce424836ad0ca4a721/analysis/>`_ was also served from 8 other sites.
+
+
+.. image:: http://img203.imageshack.us/img203/3440/maltegoexample.png
